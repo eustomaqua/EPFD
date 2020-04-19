@@ -17,12 +17,12 @@ install:
 before_install:
   - pip install codecov
   - pip install coverage==3.7.1
-  - pip install pytest pytest-cov==2.6.1
+  - pip install pytest pytest-cov==2.5.1
   - pip install codacy-coverage
 script:
   # - pip install -e .[tests] --progress-bar off
   # - python -m pytest --cov-report xml:coverage.xml
-  - coverage run --source=./ -m pytest
+  - coverage run --source=./ -m pytest --ignore=./PyEnsemble
   - coverage report -m
   - coverage xml
   - if ! [[ -z $CODACY_PROJECT_TOKEN ]]; then
