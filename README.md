@@ -43,9 +43,9 @@ name\_pru $\in$ \['ES', 'KP', 'KL', 'RE', 'OO', 'DREP', 'SEP', 'OEP', 'PEP', 'CO
 
 e.g.,
 ```shell
-$ python main.py --nb-cls 11 --nb_pru 3 --name-pru COMEP --lam 0.5 --m 2
-$ python main.py --nb-cls 11 --nb_pru 3 --name-pru DOMEP --lam 0.5 --m 2
-$ python main.py --nb-cls 11 --nb_pru 3 --name-pru PEP --distributed
+$ python main.py --nb-cls 31 --nb_pru 7 --name-pru COMEP --lam 0.5 --m 2
+$ python main.py --nb-cls 31 --nb_pru 7 --name-pru DOMEP --lam 0.5 --m 2
+$ python main.py --nb-cls 31 --nb_pru 7 --name-pru PEP --distributed --m 2
 ```
 
 ## Cite
