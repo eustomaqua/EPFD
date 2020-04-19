@@ -14,14 +14,15 @@ install:
   - git clone https://github.com/eustomaqua/PyEnsemble.git
   - pip install -e ./PyEnsemble
 # command to run tests
-before_install:
+before_script:
+  - pip install coveralls
+  # - pip install coverage==3.7.1
   - pip install codecov
   - pip install pytest pytest-cov==2.5.1
-  - pip install coverage==3.7.1
-  - pip install codacy-coverage
+  # - pip install codacy-coverage
 script:
   # - pip install -e .[tests] --progress-bar off
-  - python -m pytest --cov-report xml:coverage.xml
+  ## - python -m pytest --cov-report xml:coverage.xml
   - coverage run --source=./ -m pytest
   - coveralls
   - coverage report -m --omit=./PyEnsemble
