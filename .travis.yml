@@ -16,7 +16,7 @@ install:
 # command to run tests
 before_install:
   - pip install codecov
-  - pip install coverage # ==3.7.1
+  - pip install coverage==3.7.1
   - pip install pytest pytest-cov
   - pip install codacy-coverage
 script:
