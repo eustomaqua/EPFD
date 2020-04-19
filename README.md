@@ -34,6 +34,18 @@ $ pip install -e ./PyEnsemble
 
 ## Example
 
+Dataset: iris
+
+Optional Choices of Ensemble Pruning Methods:
+name\_pru $\in$ \['ES', 'KP', 'KL', 'RE', 'OO', 'DREP', 'SEP', 'OEP', 'PEP', 'COMEP', 'DOMEP'\]
+
+e.g.,
+```shell
+$ python main.py --nb-cls 11 --nb_pru 3 --name-pru COMEP --lam 0.5 --m 2
+$ python main.py --nb-cls 11 --nb_pru 3 --name-pru DOMEP --lam 0.5 --m 2
+$ python main.py --nb-cls 11 --nb_pru 3 --name-pru PEP --distributed
+```
+
 ## Cite
 Please cite our paper if you use this repository
 ```bib

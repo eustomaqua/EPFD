@@ -17,7 +17,7 @@ np.random.seed(4567)
 from pyensemble.classify import BaggingEnsembleAlgorithm
 from data_distributed import (distributed_single_pruning,
                               distributed_pruning_methods)
-from data_entropy import COMEP, DOMEP
+from data_distributed import COMEP_Pruning, DOMEP_Pruning
 
 
 
@@ -33,7 +33,7 @@ parser.add_argument("--name-pru", type=str, default='COMEP',
     help='Name of the expected ensemble pruning method')
 parser.add_argument("--distributed", action="store_true",
     help='Whether to use EPFD (framework)')
-parser.add_argument("--lambda", type=float, default=0.5,
+parser.add_argument("--lam", type=float, default=0.5,
     help="lambda")
 parser.add_argument("--m", type=int, default=2,
     help='Number of Machines')
@@ -43,7 +43,7 @@ nb_cls = args.nb_cls
 nb_pru = args.nb_pru
 name_pru = args.name_pru
 distributed = args.distributed
-lam = args.lambda
+lam = args.lam
 m = args.m
 
 
@@ -53,7 +53,7 @@ iris = datasets.load_iris()
 X = iris.data
 y = iris.target
 
-choice = np.choice([0, 1, 2])
+choice = np.random.choice([0, 1, 2])
 cindex = y != choice
 y = y[cindex]
 X = X[cindex]
@@ -88,18 +88,19 @@ if name_pru not in ['COMEP', 'DOMEP']:
         since = time.time()
         Pd = distributed_pruning_methods(y_trn, y_insp,
             nb_pru, m, name_pru, rho=rho)
-        Td = time.time() - since()
+        Td = time.time() - since
         print("{:5s}: {:.4f}s, get {}".format(name_pru, Td, Pd))
 
 elif name_pru == 'COMEP':
     since = time.time()
-    Pc = COMEP(np.array(y_insp).T.tolist(), nb_pru, y_trn, lam, rho=rho)
+    Pc = COMEP_Pruning(np.array(y_insp).T.tolist(), nb_pru, y_trn, lam)
     Tc = time.time() - since
     print("{:5s}: {:.4f}s, get {}".format(name_pru, Tc, Pc))
 
 elif name_pru == 'DOMEP':
     since = time.time()
-    Pd = DOMEP(np.array(y_insp).T.tolist(), nb_pru, m, y_trn, lam, rho=rho)
+    Pd = DOMEP_Pruning(np.array(y_insp).T.tolist(), nb_pru, m, y_trn, lam)
+    Td = time.time() - since
     print("{:5s}: {:.4f}s, get {}".format(name_pru, Td, Pd))
 
 else:

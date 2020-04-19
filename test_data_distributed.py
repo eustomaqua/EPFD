@@ -100,11 +100,25 @@ def test_composable():
     nb_pru = 9
     y, yt = generate_data(2, 50, 17)
     check_centralized_distributed('DREP', y, yt, nb_pru)
-    
-    check_centralized_distributed('GMA', y, yt, nb_pru)
-    check_centralized_distributed('LCS', y, yt, nb_pru)
+    #
+    # check_centralized_distributed('GMA', y, yt, nb_pru)
+    # check_centralized_distributed('LCS', y, yt, nb_pru)
+    #
+    # y, yt = generate_data(4, 50, 17)
+    # check_centralized_distributed('GMA', y, yt, nb_pru)
+    # check_centralized_distributed('LCS', y, yt, nb_pru)
 
+def test_GMA():
+    nb_pru = 9
+    y, yt = generate_data(2, 50, 17)
+    check_centralized_distributed('GMA', y, yt, nb_pru)
     y, yt = generate_data(4, 50, 17)
     check_centralized_distributed('GMA', y, yt, nb_pru)
+
+def test_LCS():
+    nb_pru = 9
+    y, yt = generate_data(2, 50, 17)
+    check_centralized_distributed('LCS', y, yt, nb_pru)
+    y, yt = generate_data(4, 50, 17)
     check_centralized_distributed('LCS', y, yt, nb_pru)
 

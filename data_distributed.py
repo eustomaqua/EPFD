@@ -67,6 +67,17 @@ def element_contrastive_pruning_via_validation(name_pru,
     return deepcopy(P), flag
 
 
+def COMEP_Pruning(T, k, L, lam):
+    P = COMEP(T, k, L, lam)
+    P = np.where(P)[0].tolist()
+    return deepcopy(P)
+
+def DOMEP_Pruning(T, k, m, L, lam):
+    P = DOMEP(T, k, m, L, lam)
+    P = np.where(P)[0].tolist()
+    return deepcopy(P)
+
+
 
 # ----------  Framework EPFD  -----------
 # Ensemble Pruning Framework in a Distributed Setting (EPFD)
