@@ -78,15 +78,14 @@ def main(args):
     lam = args.lam
     m = args.m
 
-    X_trn, y_trn, X_tst, y_tst = load_iris()
+    X_trn, y_trn, _, _ = load_iris()
 
 
     name_cls = neighbors.KNeighborsClassifier()
-    coef, clfs = BaggingEnsembleAlgorithm(
+    _, clfs = BaggingEnsembleAlgorithm(
         X_trn, y_trn, name_cls, nb_cls)
 
     y_insp = [i.predict(X_trn).tolist() for i in clfs]
-    y_pred = [i.predict(X_tst).tolist() for i in clfs]
     rho = nb_pru / nb_cls
 
 

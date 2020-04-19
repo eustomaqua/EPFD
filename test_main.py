@@ -24,13 +24,13 @@ class TestMain(unittest.TestCase):
         self.assertTrue(len(np.unique(y_trn)) == 2)
         self.assertTrue(len(np.unique(y_tst)) == 2)
 
-    def test_main(self):
-        args = define_params()
-        args.name_pru = 'COMEP'
-        main(args)
-        args.name_pru = 'DOMEP'
-        main(args)
+def test_main():
+    args = define_params()
+    args.name_pru = 'COMEP'
+    main(args)
+    args.name_pru = 'DOMEP'
+    main(args)
 
-        args.name_pru = 'PEP'
-        args.distributed = True
-        main(args)
+    args.name_pru = 'PEP'
+    args.distributed = True
+    main(args)

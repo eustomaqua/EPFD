@@ -26,6 +26,7 @@ Including:
   $ source EPFD/bin/activate
   $ # deactivate
   ```
+
 - Install packages
   ```shell
   $ pip install -r requirements.txt
