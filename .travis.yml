@@ -36,6 +36,8 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
+repo_token: 9NvpsZVFJpGKwtUUbCW9VUMg2eNtIHIHt
+
 env:
   - TEST_SUITE=units
   - TEST_SUITE=integration
