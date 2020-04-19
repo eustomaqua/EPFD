@@ -31,7 +31,9 @@ import data_entropy as dt
 
 def element_contrastive_pruning_via_validation(name_pru,
                 nb_cls, nb_pru, y_val, y_cast, epsilon=1e-3, rho=0.5):
-    since = time.time()
+    # since = time.time()
+    if nb_pru >= nb_cls:
+        return list(range(nb_cls)), None
 
     if name_pru == 'ES':
         ys_cast, P       = dp.Early_Stopping(              y_cast,        nb_cls, nb_pru)
@@ -43,29 +45,25 @@ def element_contrastive_pruning_via_validation(name_pru,
         ys_cast, P, flag = dp.Orientation_Ordering_Pruning(y_cast, y_val)
     elif name_pru == 'RE':
         ys_cast, P       = dp.Reduce_Error_Pruning(        y_cast, y_val, nb_cls, nb_pru)
-    elif name_pru == 'KL+':
-        ys_cast, P       = dp.KL_divergence_Pruning_modify(y_cast,        nb_cls, nb_pru)
-    elif name_pru == 'GMM':  #'GMM_Algorithm'
-        ys_cast, P       = dp.GMM_Algorithm(               y_val, y_cast, nb_cls, nb_pru)
+    elif name_pru == 'GMA' or name_pru == 'GMM':  #'GMM_Algorithm'
+        ys_cast, P       = dp.GMM_Algorithm(               y_cast, y_val, nb_cls, nb_pru)
     elif name_pru == 'LCS':  #'Local_Search':
-        ys_cast, P       = dp.Local_Search(                y_val, y_cast, nb_cls, nb_pru, epsilon)
+        ys_cast, P       = dp.Local_Search(                y_cast, y_val, nb_cls, nb_pru, epsilon)
     elif name_pru == 'DREP':
-        ys_cast, P       = dp.DREP_Pruning(                y_val, y_cast, nb_cls,         rho)
+        ys_cast, P       = dp.DREP_Pruning(                y_cast, y_val, nb_cls,         rho)
     elif name_pru == 'SEP':
-        ys_cast, P       = dp.PEP_SEP(                     y_val, y_cast, rho)
+        ys_cast, P       = dp.SEP_Pruning(                 y_cast, y_val, nb_cls,         rho)
     elif name_pru == 'OEP':
-        ys_cast, P       = dp.PEP_OEP(                     y_val, y_cast     )
+        ys_cast, P       = dp.OEP_Pruning(                 y_cast, y_val, nb_cls)
     elif name_pru == 'PEP':
-        ys_cast, P       = dp.PEP_PEP(                     y_val, y_cast, rho)
-    elif name_pru == 'PEP+':
-        ys_cast, P       = dp.PEP_PEP_modify(              y_val, y_cast, rho)
+        ys_cast, P       = dp.PEP_Pruning(                 y_cast, y_val, nb_cls,         rho)
     else:
         raise UserWarning("Error occurred in `contrastive_pruning_methods`.")
 
     if name_pru != "OO":
         flag = None
     P = np.where(P)[0].tolist()
-    del since, ys_cast
+    del ys_cast
     return deepcopy(P), flag
 
 

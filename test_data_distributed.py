@@ -43,11 +43,11 @@ def test_centralized_distributed():
     check_centralized_distributed('KL', y, yt, nb_pru)
     check_centralized_distributed('RE', y, yt, nb_pru)
     check_centralized_distributed('OO', y, yt, nb_pru)
-    check_centralized_distributed('GMA', y, yt, nb_pru)
-    check_centralized_distributed('LCS', y, yt, nb_pru)
-    check_centralized_distributed('OEP', y, yt, nb_pru)
-    check_centralized_distributed('SEP', y, yt, nb_pru)
-    check_centralized_distributed('PEP', y, yt, nb_pru)
+    ## check_centralized_distributed('GMA', y, yt, nb_pru)
+    ## check_centralized_distributed('LCS', y, yt, nb_pru)
+    # check_centralized_distributed('OEP', y, yt, nb_pru)
+    # check_centralized_distributed('SEP', y, yt, nb_pru)
+    # check_centralized_distributed('PEP', y, yt, nb_pru)
 
 def test_binary_situation():
     y = np.random.randint(2, size=50)
@@ -59,11 +59,52 @@ def test_binary_situation():
     check_centralized_distributed('KL', y, yt, nb_pru)
     check_centralized_distributed('RE', y, yt, nb_pru)
     check_centralized_distributed('OO', y, yt, nb_pru)
-    check_centralized_distributed('GMA', y, yt, nb_pru)
-    check_centralized_distributed('LCS', y, yt, nb_pru)
-    check_centralized_distributed('DREP', y, yt, nb_pru)
+    ## check_centralized_distributed('GMA', y, yt, nb_pru)
+    ## check_centralized_distributed('LCS', y, yt, nb_pru)
+    ## check_centralized_distributed('DREP', y, yt, nb_pru)
+    # check_centralized_distributed('OEP', y, yt, nb_pru)
+    # check_centralized_distributed('SEP', y, yt, nb_pru)
+    # check_centralized_distributed('PEP', y, yt, nb_pru)
+
+
+
+def generate_data(nb_clas, nb_inst, nb_cls):
+    prng = np.random.RandomState(FIXED_SEED + 3)
+    y = prng.randint(nb_clas, size=nb_inst)
+    yt = prng.randint(nb_clas, size=(nb_cls, nb_inst))
+    return y, yt
+
+def test_OEP():
+    nb_pru = 9
+    y, yt = generate_data(4, 50, 17)
     check_centralized_distributed('OEP', y, yt, nb_pru)
+    y, yt = generate_data(2, 50, 17)
+    check_centralized_distributed('OEP', y, yt, nb_pru)
+
+def test_SEP():
+    nb_pru = 9
+    y, yt = generate_data(4, 50, 17)
     check_centralized_distributed('SEP', y, yt, nb_pru)
+    y, yt = generate_data(2, 50, 17)
+    check_centralized_distributed('SEP', y, yt, nb_pru)
+
+def test_PEP():
+    nb_pru = 9
+    y, yt = generate_data(4, 50, 17)
+    check_centralized_distributed('PEP', y, yt, nb_pru)
+    y, yt = generate_data(2, 50, 17)
     check_centralized_distributed('PEP', y, yt, nb_pru)
 
+
+def test_composable():
+    nb_pru = 9
+    y, yt = generate_data(2, 50, 17)
+    check_centralized_distributed('DREP', y, yt, nb_pru)
+    
+    check_centralized_distributed('GMA', y, yt, nb_pru)
+    check_centralized_distributed('LCS', y, yt, nb_pru)
+
+    y, yt = generate_data(4, 50, 17)
+    check_centralized_distributed('GMA', y, yt, nb_pru)
+    check_centralized_distributed('LCS', y, yt, nb_pru)
 
