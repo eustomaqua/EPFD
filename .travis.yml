@@ -22,13 +22,13 @@ before_install:
 script:
   # - pip install -e .[tests] --progress-bar off
   # - python -m pytest --cov-report xml:coverage.xml
-  - coverage run --source=./test*.py -m pytest
+  - coverage run --source=./ -m pytest
   - coverage report -m --omit=./PyEnsemble
-  - coverage xml
-  - if ! [[ -z $CODACY_PROJECT_TOKEN ]]; then
-      python-codacy-coverage -r coverage.xml;
-    fi
-  - pip install python-coveralls==2.4.3 && coveralls
+  # - coverage xml
+  # - if ! [[ -z $CODACY_PROJECT_TOKEN ]]; then
+  #     python-codacy-coverage -r coverage.xml;
+  #   fi
+  # - pip install python-coveralls==2.4.3 && coveralls
   - pip install pytest-cover
 after_success:
   - codecov --token="$CODECOV_TOKEN"
