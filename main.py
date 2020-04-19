@@ -7,6 +7,7 @@ from __future__ import print_function
 
 import argparse
 import time
+import sys
 
 from sklearn import datasets
 from sklearn import neighbors
@@ -21,26 +22,28 @@ from data_distributed import COMEP_Pruning, DOMEP_Pruning
 
 
 
-def define_params():
+def define_params(args):
     parser = argparse.ArgumentParser()
     parser.add_argument("--nb-cls", type=int, default=17,
         help='Number of individual classifiers in the ensemble')
     parser.add_argument("--nb-pru", type=int, default=5,
         help='Number of members in the pruned sub-ensemble')
+
     parser.add_argument("--name-pru", type=str, default='COMEP',
         choices=['ES', 'KP', 'KL', 'RE', 'OO',
                  'DREP', 'SEP', 'OEP', 'PEP',
                  'GMA', 'LCS', 'COMEP', 'DOMEP'],
         help='Name of the expected ensemble pruning method')
+
     parser.add_argument("--distributed", action="store_true",
         help='Whether to use EPFD (framework)')
+
     parser.add_argument("--lam", type=float, default=0.5,
         help="lambda")
     parser.add_argument("--m", type=int, default=2,
         help='Number of Machines')
 
-    args = parser.parse_args()
-    return args
+    return parser.parse_args(args)
 
 
 def load_iris():
@@ -120,6 +123,6 @@ def main(args):
 
 
 if __name__ == "__main__":
-    args = define_params()
+    args = define_params(sys.argv[1:])
     main(args)
 
