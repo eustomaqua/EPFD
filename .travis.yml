@@ -7,6 +7,8 @@ python:
 # command to install dependencies
 install:
   - pip install -r requirements.txt
+  - git clone https://github.com/eustomaqua/PyEnsemble.git
+  - pip install -e ./PyEnsemble
 # command to run tests
 before_install:
   - pip install codecov
