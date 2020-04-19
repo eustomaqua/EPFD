@@ -1,0 +1,16 @@
+# ignore files
+.DS_Store
+*/.DS_Store
+
+# ignore folders
+.idea/
+.vscode/
+.pytest_cache/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*/__pycache__/
+
+# Codacy, Coverage
+coverage.xml
+htmlcov/
