@@ -7,34 +7,32 @@
 Codes of Paper: [Ensemble Pruning based on Objection Maximization with a General Distributed Framework](https://arxiv.org/abs/1806.04899)
 
 Including:
--  Centralized Objection Maximization for Ensemble Pruning (COMEP)
--  Distributed Objection Maximization for Ensemble Pruning (DOMEP)
--  Ensemble Pruning Framework in a Distributed Setting (EPFD)
+- Centralized Objection Maximization for Ensemble Pruning (COMEP)
+- Distributed Objection Maximization for Ensemble Pruning (DOMEP)
+- Ensemble Pruning Framework in a Distributed Setting (EPFD)
 
 ## Dependencies
 
--  Create a virtual environment
-   ```shell
-   $ conda create -n EPFD python=3.6
-   $ source activate EPFD
-   $ # source deactivate
-   ```
-   or
-   ```shell
-   $ cd VirtualEnv
-   $ virtualenv EPFD --python=/usr/bin/python3
-   $ source EPFD/bin/activate
-   $ # deactivate
-   ```
+- Create a virtual environment
+  ```shell
+  $ conda create -n EPFD python=3.6
+  $ source activate EPFD
+  $ # source deactivate
+  ```
+  or
+  ```shell
+  $ virtualenv EPFD --python=/usr/bin/python3
+  $ source EPFD/bin/activate
+  $ # deactivate
+  ```
+- Install packages
+  ```shell
+  $ pip install -r requirements.txt
+  $ git clone https://github.com/eustomaqua/PyEnsemble.git
+  $ pip install -e ./PyEnsemble
+  ```
 
--  Install packages
-```shell
-$ pip install -r requirements.txt
-$ git clone https://github.com/eustomaqua/PyEnsemble.git
-$ pip install -e ./PyEnsemble
-```
-
-## Example
+## Examples
 
 Dataset: iris
 
@@ -52,10 +50,10 @@ $ python main.py --nb-cls 11 --nb_pru 3 --name-pru PEP --distributed
 Please cite our paper if you use this repository
 ```bib
 @article{bian2019ensemble,
-  title={Ensemble Pruning Based on Objection Maximization With a General Distributed Framework},
-  author={Bian, Yijun and Wang, Yijun and Yao, Yaqiang and Chen, Huanhuan},
-  journal={IEEE transactions on neural networks and learning systems},
-  year={2019},
-  publisher={IEEE}
+  title     = {Ensemble Pruning Based on Objection Maximization With a General Distributed Framework},
+  author    = {Bian, Yijun and Wang, Yijun and Yao, Yaqiang and Chen, Huanhuan},
+  journal   = {IEEE transactions on neural networks and learning systems},
+  year      = {2019},
+  publisher = {IEEE}
 }
 ```

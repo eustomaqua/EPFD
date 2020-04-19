@@ -1,4 +1,9 @@
-language: python 
+language: python
+cache: pip 
+git:
+  depth: 3
+  quiet: true
+  submodules: false
 python:
   - "3.6"  # current default Python on Travis CI
 
@@ -14,7 +19,7 @@ before_install:
   # - pip install coverage
   - pip install pytest pytest-cov
   - pip install codacy-coverage
-script: 
+script: "bundle exec rake test:$TEST_SUITE"
   # - pip install -e .[tests] --progress-bar off
   # - python -m pytest --cov-report xml:coverage.xml
   - coverage run --source=./ -m pytest
@@ -23,15 +28,17 @@ script:
   - if ! [[ -z $CODACY_PROJECT_TOKEN ]]; then
       python-codacy-coverage -r coverage.xml;
     fi
-  # - pip install python-coveralls && coveralls
+  - pip install python-coveralls && coveralls
   # - pip install pytest-cover
 after_success:
   - codecov --token="$CODECOV_TOKEN"
-  # - coveralls
-  # - bash <(curl -s https://codecov.io/bash)
-  # - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - coveralls
+  - bash <(curl -s https://codecov.io/bash)
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 env:
+  - TEST_SUITE=units
+  - TEST_SUITE=integration
   global:
     - CODACY_PROJECT_TOKEN=2f4bbe5b26b54d3faf45de40c3da9fdd
     - CODECOV_TOKEN = "0e1af558-e8ae-4767-9612-d88ddab8a375"

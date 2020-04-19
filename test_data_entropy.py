@@ -7,7 +7,6 @@ from __future__ import print_function
 import unittest
 
 from utils_const import FIXED_SEED
-from utils_const import check_equal
 import numpy as np
 
 
