@@ -1,18 +1,21 @@
 # EPFD
-"Ensemble Pruning Framework in a Distributed Setting (EPFD)"
 
 [![Build Status](https://travis-ci.org/eustomaqua/EPFD.svg?branch=master)](https://travis-ci.org/eustomaqua/EPFD) 
 [![Coverage Status](https://coveralls.io/repos/github/eustomaqua/EPFD/badge.svg)](https://coveralls.io/github/eustomaqua/EPFD) 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/39ec3833188a4fefaab11a0a0df9c3b1)](https://www.codacy.com/manual/eustomaqua/EPFD?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eustomaqua/EPFD&amp;utm_campaign=Badge_Grade) 
 
-Paper: [Ensemble Pruning based on Objection Maximization with a General Distributed Framework](https://arxiv.org/abs/1806.04899)
+Codes of Paper: [Ensemble Pruning based on Objection Maximization with a General Distributed Framework](https://arxiv.org/abs/1806.04899)
+
+Including:
+-  Centralized Objection Maximization for Ensemble Pruning (COMEP)
+-  Distributed Objection Maximization for Ensemble Pruning (DOMEP)
+-  Ensemble Pruning Framework in a Distributed Setting (EPFD)
 
 ## Dependencies
 
 -  Create a virtual environment
    ```shell
    $ conda create -n EPFD python=3.6
-   $ # works for 2.7 and 3.5 as well
    $ source activate EPFD
    $ # source deactivate
    ```
