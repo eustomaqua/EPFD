@@ -36,7 +36,7 @@ $ pip install -e ./PyEnsemble
 
 Dataset: iris
 
-Optional Choices of Ensemble Pruning Methods:
+Optional Choices of Ensemble Pruning Methods:  
 name\_pru $\in$ \['ES', 'KP', 'KL', 'RE', 'OO', 'DREP', 'SEP', 'OEP', 'PEP', 'COMEP', 'DOMEP'\]
 
 e.g.,

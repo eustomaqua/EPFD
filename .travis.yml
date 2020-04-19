@@ -12,22 +12,25 @@ install:
 # command to run tests
 before_install:
   - pip install codecov
-  - pip install coverage
-script: 
-  - pip install -e .[tests] --progress-bar off
+  # - pip install coverage
+  - pip install pytest pytest-cov
   - pip install codacy-coverage
-  # - pytest tests --cov=pyensemble --cov-report xml:coverage.xml
-  - python -m pytest --cov=./ --cov-report xml:coverage.xml
+script: 
+  # - pip install -e .[tests] --progress-bar off
+  # - python -m pytest --cov-report xml:coverage.xml
+  - coverage run --source=./ -m pytest
+  - coverage report -m
+  - coverage xml
   - if ! [[ -z $CODACY_PROJECT_TOKEN ]]; then
       python-codacy-coverage -r coverage.xml;
     fi
-  - pip install python-coveralls && coveralls
-  - pip install pytest-cover
+  # - pip install python-coveralls && coveralls
+  # - pip install pytest-cover
 after_success:
   - codecov --token="$CODECOV_TOKEN"
-  - coveralls
-  - bash <(curl -s https://codecov.io/bash)
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  # - coveralls
+  # - bash <(curl -s https://codecov.io/bash)
+  # - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 env:
   global:
