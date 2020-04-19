@@ -19,7 +19,7 @@ before_install:
   # - pip install coverage
   - pip install pytest pytest-cov
   - pip install codacy-coverage
-script: "bundle exec rake test:$TEST_SUITE"
+script:
   # - pip install -e .[tests] --progress-bar off
   # - python -m pytest --cov-report xml:coverage.xml
   - coverage run --source=./ -m pytest
@@ -36,11 +36,7 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
-repo_token: 9NvpsZVFJpGKwtUUbCW9VUMg2eNtIHIHt
-
 env:
-  - TEST_SUITE=units
-  - TEST_SUITE=integration
   global:
     - CODACY_PROJECT_TOKEN=2f4bbe5b26b54d3faf45de40c3da9fdd
     - CODECOV_TOKEN = "0e1af558-e8ae-4767-9612-d88ddab8a375"
