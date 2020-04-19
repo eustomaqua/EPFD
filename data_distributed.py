@@ -7,7 +7,6 @@ from __future__ import print_function
 
 from copy import deepcopy
 import gc
-import time
 gc.enable()
 
 import numpy as np
@@ -31,7 +30,6 @@ import data_entropy as dt
 
 def element_contrastive_pruning_via_validation(name_pru,
                 nb_cls, nb_pru, y_val, y_cast, epsilon=1e-3, rho=0.5):
-    # since = time.time()
     if nb_pru >= nb_cls:
         return list(range(nb_cls)), None
 

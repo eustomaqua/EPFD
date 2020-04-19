@@ -259,7 +259,7 @@ def COMEP(T, k, L, lam):
     S = np.zeros(n, dtype=DTY_BOL)
     p = np.random.randint(0, n)
     S[p] = True
-    for i in range(1, k):
+    for _ in range(1, k):
         idx = arg_max_p(T, S, L, lam)
         if idx > -1:
             S[idx] = True  #1
