@@ -1,2 +1,2 @@
-omit=
-  ./PyEnsemble/*
+[run]
+omit = ./PyEnsemble/*
