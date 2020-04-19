@@ -22,7 +22,7 @@ before_install:
 script:
   # - pip install -e .[tests] --progress-bar off
   # - python -m pytest --cov-report xml:coverage.xml
-  - coverage run --source=./ -m pytest --omit=./PyEnsemble
+  - coverage run --source=./ -m pytest
   - coverage report -m --omit=./PyEnsemble
   - coverage xml
   - if ! [[ -z $CODACY_PROJECT_TOKEN ]]; then
