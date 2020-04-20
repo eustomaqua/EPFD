@@ -25,8 +25,8 @@ script:
   # - pip install -e .[tests] --progress-bar off
   ## - python -m pytest --cov-report xml:coverage.xml
   - coverage run --source=./ -m pytest --ignore=./PyEnsemble
-  - coveralls
   - coverage report -m --omit=./PyEnsemble
+  - coveralls
   # - coverage xml
   # - if ! [[ -z $CODACY_PROJECT_TOKEN ]]; then
   #     python-codacy-coverage -r coverage.xml;
