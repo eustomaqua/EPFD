@@ -20,7 +20,7 @@ before_script:
   # - pip install coverage==3.7.1
   - pip install codecov
   - pip install pytest pytest-cov==2.5.1
-  # - pip install codacy-coverage
+  - pip install codacy-coverage
 script:
   # - pip install -e .[tests] --progress-bar off
   ## - python -m pytest --cov-report xml:coverage.xml
@@ -29,9 +29,9 @@ script:
   # - coveralls
   - coverage report -m --omit=./PyEnsemble
   - coverage xml
-  # - if ! [[ -z $CODACY_PROJECT_TOKEN ]]; then
-  #     python-codacy-coverage -r coverage.xml;
-  #   fi
+  - if ! [[ -z $CODACY_PROJECT_TOKEN ]]; then
+      python-codacy-coverage -r coverage.xml;
+    fi
   # - pip install python-coveralls==2.4.3 # && coveralls
   # - pip install pytest-cover
 after_success:
