@@ -1,7 +1,7 @@
 # EPFD
 
 [![Build Status](https://travis-ci.org/eustomaqua/EPFD.svg?branch=master)](https://travis-ci.org/eustomaqua/EPFD) 
-[![Coverage Status](https://coveralls.io/repos/github/eustomaqua/EPFD/badge.svg)](https://coveralls.io/github/eustomaqua/EPFD) 
+[![Coverage Status](https://coveralls.io/repos/github/eustomaqua/EPFD/badge.svg?branch=master)](https://coveralls.io/github/eustomaqua/EPFD?branch=master) 
 [![codecov](https://codecov.io/gh/eustomaqua/EPFD/branch/master/graph/badge.svg)](https://codecov.io/gh/eustomaqua/EPFD) 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/39ec3833188a4fefaab11a0a0df9c3b1)](https://www.codacy.com/manual/eustomaqua/EPFD?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eustomaqua/EPFD&amp;utm_campaign=Badge_Grade) 
 
