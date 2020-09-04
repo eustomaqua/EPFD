@@ -61,5 +61,6 @@ Please cite our paper if you use this repository
   pages     = {3766--3774},
   doi       = {10.1109/TNNLS.2019.2945116},
   publisher = {IEEE},
+  url       = {https://ieeexplore.ieee.org/document/8891828},
 }
 ```
