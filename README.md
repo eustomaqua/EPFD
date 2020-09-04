@@ -51,11 +51,15 @@ $ python main.py --nb-cls 31 --nb_pru 7 --name-pru PEP --distributed --m 2
 ## Cite
 Please cite our paper if you use this repository
 ```bib
-@article{bian2019ensemble,
-  title     = {Ensemble Pruning Based on Objection Maximization With a General Distributed Framework},
+@article{8891828,
+  title     = {Ensemble Pruning Based on Objection Maximization With a General Distributed Framework}, 
   author    = {Bian, Yijun and Wang, Yijun and Yao, Yaqiang and Chen, Huanhuan},
-  journal   = {IEEE transactions on neural networks and learning systems},
-  year      = {2019},
-  publisher = {IEEE}
+  journal   = {IEEE Transactions on Neural Networks and Learning Systems}, 
+  year      = {2020},
+  volume    = {31},
+  number    = {9},
+  pages     = {3766--3774},
+  doi       = {10.1109/TNNLS.2019.2945116},
+  publisher = {IEEE},
 }
 ```
