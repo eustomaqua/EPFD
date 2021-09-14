@@ -5,7 +5,8 @@
 [![codecov](https://codecov.io/gh/eustomaqua/EPFD/branch/master/graph/badge.svg)](https://codecov.io/gh/eustomaqua/EPFD) 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/39ec3833188a4fefaab11a0a0df9c3b1)](https://www.codacy.com/manual/eustomaqua/EPFD?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eustomaqua/EPFD&amp;utm_campaign=Badge_Grade) 
 
-Codes of Paper: [Ensemble Pruning based on Objection Maximization with a General Distributed Framework](https://arxiv.org/abs/1806.04899)
+Code of Paper:  
+[Ensemble Pruning based on Objection Maximization with a General Distributed Framework](https://arxiv.org/abs/1806.04899)
 
 Including:
 - Centralized Objection Maximization for Ensemble Pruning (COMEP)
